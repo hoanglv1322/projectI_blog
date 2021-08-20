@@ -1,0 +1,47 @@
+<div class="list-group list-group-horizontal mt-2 text-center">
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/js">Javascript</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/php">PHP</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/css">CSS</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/python">PYTHON</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/c">C/C++</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/html">HTML</a>
+<a class="list-group-item list-group-item-action list-group-item-dark" href="/course/create">Up Course</a>
+</div>
+
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8">
+        <form method="POST" action="create/store">
+            <div class="mt-4">
+                <h2 class="text-center">Create Video</h2>
+
+                <div class="mb-3">
+                    <label for="inputtext3" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control" id="inputtext3">
+                    </div>
+   
+                    <label for="inputtext3" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="description" class="form-control" id="inputtext3"></textarea>
+                    </div>
+                 
+                    <label for="inputtext3" class="col-sm-2 col-form-label">VideoID</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="videoId" class="form-control" id="inputtext3">
+                    </div>
+                       
+                    <label for="inputtext3" class="col-sm-2 col-form-label">Type</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="type" class="form-control" id="inputtext3">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Create</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>

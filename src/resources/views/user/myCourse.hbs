@@ -1,0 +1,71 @@
+<div class="mt-4 " style="min-height: 600px">
+  <h2>My Course</h2>
+  <table class="table table-bordered table-dark table-hover " class="mt-4">
+
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Name</th>
+        <th scope="col">VideoId</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each course}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.name}}</td>
+        <td>{{this.videoId}}</td>
+        <td><a href="/me/course/update/{{this.slug}}"><button type="button" class="btn btn-infor">Update</button></a></td>
+        <td><a href="#"><button type="button"  class="btn btn-danger " data-toggle="modal" data-target="#confirm" data-slug="{{this.slug}}">Delete</button></a></td>
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+</div>
+
+<!-----Modal confirm------------>
+<div class="modal fade" id="confirm" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm Delete</h5>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete course?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" id="delete-course">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-----form delete------>
+
+<form method="POST" id="form-delete-course" ></form>
+
+
+<script>
+ 
+     document.addEventListener("DOMContentLoaded", function () {
+
+        var slug;
+        var btnDeleteCourse = document.getElementById("delete-course");
+        var formDeleteCourse = document.getElementById("form-delete-course");
+
+        $('#confirm').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget)
+          slug = button.data('slug')
+          
+        });
+
+        btnDeleteCourse.onclick = function(){
+             formDeleteCourse.action = "/me/course/delete/" + slug +"?_method=DELETE";
+             formDeleteCourse.submit();
+        }
+     });
+ 
+</script>

@@ -1,0 +1,32 @@
+<div class="list-group list-group-horizontal mt-2 text-center">
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/js">Javascript</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/php">PHP</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/css">CSS</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/python">PYTHON</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/c">C/C++</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/me/listcourse/html">HTML</a>
+<a class="list-group-item list-group-item-action list-group-item-dark" href="/course/create">Up Course</a>
+</div>
+
+
+<div class="mt-4">
+    <div class="row">
+        {{#each course}}
+            <div class="col-sm-3 my-3 card">
+                <a href="/course/{{this.type}}/{{this.slug}}" class="click-a">
+                    <img src="{{this.imga}}" class="card-img-top" alt="{{this.imga}}"> 
+                </a>
+               
+                <div class="card-body">
+                    <a href="/course/{{this.type}}/{{this.slug}}" class="click-a>
+                        <h5 class="card-title">{{this.name}}</h5>
+                    </a>
+                    <p class="card-text">{{this.description}}</p>
+                </div>
+
+                <a href="#" class="btn btn-primary mt-0">Buy Course</a>
+            </div>
+        {{/each}}
+
+    </div>
+</div>

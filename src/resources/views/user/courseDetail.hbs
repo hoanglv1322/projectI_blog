@@ -1,0 +1,86 @@
+<div class="row">
+    <div class=" col-8 mt-5">
+        <iframe width="100%" height="300px" src="https://www.youtube.com/embed/{{courses.[0].videoId}}"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <div class="card-b">
+            <h5 class="card-title">{{courses.[0].name}}</h5>
+            <p class="card-text">{{courses.[0].description}}</p>
+        </div>
+        <div class="dropdown-divider mt-5"></div>
+
+        <div class="status-course d-flex justify-content-end">
+            <a href="#"><i class="far fa-thumbs-up mr-2 fa-lg"></i> 10K</a>
+            <a href="#"><i class="far fa-thumbs-down mr-2 fa-lg ml-5"></i> 12</a>
+            <a href="#"><i class="far fa-comment-alt fa-lg mr-2 ml-5"></i> 1,2K</a>
+            <a href="#"><i class="far fa-share-square mr-2 fa-lg ml-5"></i> 120</a>
+        </div>
+
+        <div class="dropdown-divider mt-5"></div>
+    </div>
+
+
+    <div class="col-3 mt-5">
+        <div class="container bg-light d-flex align-items-start flex-column" style="min-height: 400px">
+            <div id="comment" class="mb-auto mt-2"></div>
+            <div class="d-flex align-items-center">
+                <div class="flex-grow-1">
+                    <input type="text" class="input-comment ml-1" id = "comment-text" placeholder="wirte comment..." width="100%">
+                </div>
+                <div>
+                    <a href="#" id="send-comment"><i class="fas fa-location-arrow ml-5 fa-lg"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        const sendComment = document.getElementById("send-comment");
+        const comment = document.getElementById("comment");
+        const commentText = document.getElementById("comment-text");
+        const listComment = [];
+
+
+        sendComment.onclick = function () {
+            listComment.push(commentText.value);
+            commentText.value = "";
+            const html = listComment.map(comment => {
+                return ` 
+                <div class="d-flex align-items-start mb-3">
+                    <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/173545353_852002415405596_3965892314770347869_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ZmNj_LFTKM4AX9Tp9xF&_nc_ht=scontent.fhan2-3.fna&oh=7e10882e226f19984312be1f46370d8c&oe=611FE555" 
+                        alt="" width="40px" height="40px" style="border-radius:50%">
+                    <div class="ml-2 p-2" style="border-radius:10px; min-width: 100px; font-size: 13px;  background:rgba(104, 71, 71, 0.1);">
+                        <p class="m-0">Hoang</p>
+                        <span>${comment}</span>
+                    </div>
+                </div>
+             `;
+            });
+            comment.innerHTML = html.join("");
+           
+        }
+    });
+</script>
+
+<div class="row d-flex justify-content-around">
+    {{#each courses}}
+    <div class="card mt-3 col-4">
+        <a href="/course/{{this.slug}}" class="click-a">
+            <img src="{{this.imga}}" class="card-img-top" alt="{{this.imga}}">
+        </a>
+        <div class="card-body ">
+            <a href="/course/{{this.slug}}" class="click-a>
+                <h5 class=" card-title">{{this.name}}</h5>
+            </a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+

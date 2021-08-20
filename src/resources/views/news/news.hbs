@@ -1,0 +1,88 @@
+<div class="list-group list-group-horizontal mt-2 text-center ">
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/sport">Sports</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/political">Political</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/medical">Medical</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/technology">Technology</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/culture">Culture and Art</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/travel">Travel</a>
+  <a class="list-group-item list-group-item-action list-group-item-dark" href="/news/create">Write News</a>
+</div>
+
+
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-7">
+      <img
+        src="https://i1-thethao.vnecdn.net/2021/08/14/VideoMonchengladbachBayernMuni-8364-7599-1628893316.jpg?w=680&h=408&q=100&dpr=1&fit=crop&s=Xz9LhQEzhDKaaDIPlQh3uA"
+        class="card-img" alt="" height="100%" width="100%">
+    </div>
+    <div class="col-md-5 bg-light">
+      <div class="card-body">
+        <h5 class="card-title">Monchengladbach 1-1 Bayern</h5>
+        <p class="card-text">Nhờ Robert Lewandowski, Bayern tránh khỏi thất bại trong ngày ra quân Bundesliga 2021-2022
+          hôm 13/8. </p>
+        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dropdown-divider my-3"></div>
+
+<div class="row">
+
+  <div class="col-8">
+
+    {{#if news}}
+      {{#each news}}
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-7 bg-light">
+              <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <p class="card-text">{{this.description}}</p> </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <img
+                src="{{this.img}}"
+                class="card-img" alt="" height="100%" width="100%">
+            </div>
+          </div>
+        </div>
+        <div class="dropdown-divider my-5"></div>
+      {{/each}}
+    {{/if}}
+
+  </div>
+
+
+  <div class="col-3 bg-light">
+
+    <h4 class="text-center">News Other</h4>
+
+    <div class="dropdown-divider my-3"></div>
+
+    <img
+      src="https://i1-thethao.vnecdn.net/2021/08/13/1-1628819922-9289-1628820146.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=c0z7bSS08jCPn6KTIT-ndg"
+      alt="" width="100%">
+    <p>Nadal lần đầu văng khỏi top 3 ATP sau bốn năm</p>
+
+    <div class="dropdown-divider my-3"></div>
+
+    <img
+      src="https://i1-thethao.vnecdn.net/2021/08/14/liem-xiong-jpeg-1628911937-162-9177-8942-1628911977.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=wARxYh8bpacw1kS1wA5tNw"
+      alt="" width="100%">
+    <p>Quang Liêm tụt lại phía sau ở siêu giải St Louis </p>
+
+    <div class="dropdown-divider my-3"></div>
+
+    <img
+      src="https://i1-suckhoe.vnecdn.net/2021/08/14/tngmcCovid19cnntimvaccine-1628-8568-2943-1628919399.jpg?w=300&h=180&q=100&dpr=1&fit=crop&s=EuNmucHC_vdtJrohJgJUSQ"
+      alt="" width="100%">
+    <p>Từng mắc Covid-19 có cần tiêm vaccine phòng bệnh?</p>
+
+  </div>
+
+</div>

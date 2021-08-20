@@ -1,0 +1,58 @@
+<div class="list-group list-group-horizontal mt-2 text-center " >
+    <a class="list-group-item list-group-item-action list-group-item-dark " href="/games/sport">Sports</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/action">Action</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/wisdom">Wisdom</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/tactic">Tactic</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/fashion">Fashions</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/cooking">Cooking</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/shoot">Shoots</a>
+    <a class="list-group-item list-group-item-action list-group-item-dark" href="/games/create">Create</a>
+</div>
+
+<div class="row">
+    <div class="col-8 mt-3 bg-light">
+        <div class="row">
+            <div class="col p-0">
+                <img src="https://st.gamevui.com/images/image/2016/4/26/cao-nho-don-dep-phong-600-size-325x170-znd.jpg"
+                    alt="" width="100%">
+            </div>
+            <div class="col p-0">
+                <img src="https://st.gamevui.com/images/image/2016/7/26/nha-thiet-ke-thoi-trang-elsa-600-size-325x170-znd.jpg"
+                    alt="" width="100%">
+            </div>
+        </div>
+
+        <div class="row mt-3 text-center">
+            {{#if games}}
+                {{#each games}}
+                    <div class="col-2 pl-2">
+                        <img src={{this.img}} alt=""
+                            width="100%">
+                        <span>{{this.name}}</span>
+                        <div class="d-flex justify-content-center">
+                            <i class="far fa-user pt-1 mr-2"></i>
+                            <p>{{this.people}}</p>
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+
+        </div>
+    </div>
+
+    <div class="col-3 mt-3">
+        
+       <div class="d-flex justify-content-between">
+           <p>Ads</p>
+           <a href="#">Close</a>
+       </div>
+
+       <img src="https://photo-cms-viettimes.zadn.vn/w666/Uploaded/2021/cqjwqqrnd/2021_02_18/nhom-hack-tai-khoan-facebook-dang-nham-vao-dong-nam-a-7588.jpeg"
+         alt="" width="100%" height="250px">
+
+        <div class="dropdown-divider my-3"></div>
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcZVpO6hoE9ZcADL9crUejp-XVLOOmJX3-AyCSfKvzJUoxHHn5uwxpp3ffxfFNYaaIHmw&usqp=CAU"
+             alt="" width="100%" height="250px">
+    </div> 
+</div>

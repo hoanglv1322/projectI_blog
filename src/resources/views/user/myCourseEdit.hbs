@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col"></div>
+    <div class="col-8 mt-5">
+        <form method="POST" action="/me/{{course.slug}}?_method=PUT">
+            <div class="mt-4">
+                <h2 class="text-center">Update Video</h2>
+
+                <div class="mb-3">
+                    <label for="inputtext3" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" class="form-control" id="inputtext3" value="{{course.name}}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="inputtext3" class="col-sm-2 col-form-label">VideoID</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="videoId" class="form-control" id="inputtext3"
+                                value="{{course.videoId}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
