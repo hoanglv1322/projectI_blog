@@ -1,98 +1,108 @@
-<form action="/me/stored/post" method="POST" enctype="multipart/form-data">
-    <div class="write-post-container bg-light ">
+<div class="main-post-container">
+    <form action="/me/stored/post" method="POST" enctype="multipart/form-data">
+        <div class="write-post-container mt-5 bg-light ">
 
-        <div class="head-post-container-wirte">
-            <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/173545353_852002415405596_3965892314770347869_n.jpg?_nc_cat=108&ccb=1-4&_nc_sid=09cbfe&_nc_ohc=v2BWpjH0JIQAX_uYlmB&_nc_ht=scontent.fhan2-3.fna&oh=808d5c851df79e7f4137854f4b392ca0&oe=61160215"
-                alt="" style="border-radius: 50%;" width="50" height="50" class="d-inline-block align-top"
-                name="imgUser">
-            <div class="ml-2">
-                <p class="mb-0">Hoang</p>
-                <small>Public <i class="fas fa-sort-down fa-lg"></i> </small>
+            <div class="head-post-container-wirte">
+                <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/239782149_876730482932789_4917845868754946606_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=4MrUbmsRDSoAX_W4NKu&tn=aUTkPD_b_GU4Udwi&_nc_ht=scontent.fhan14-2.fna&oh=9741afd3644ca575e5bde7b329dcdc0b&oe=612F7EB8"
+                    alt="" style="border-radius: 50%;" width="50" height="50" class="d-inline-block align-top"
+                    name="imgUser">
+                <div class="ml-2">
+                    <p class="mb-0">Hoang</p>
+                    <small>Public <i class="fas fa-sort-down fa-lg"></i> </small>
+                </div>
             </div>
-        </div>
 
-        <div class="post-input-container">
-            <textarea rows="3" placeholder="what's is on mind?" name="textStatus"></textarea>
-            <div class="d-flex justify-content-center mt-0">
-                <img src="" alt="" id="img-post" name="imgPost">
-            </div>
-            <p id="status"></p>
-            <div class="add-post-link justify-content-between">
-                <div class="d-flex align-items-center">
-                    <a href="#"><i class="fas fa-video fa-lg mr-2"></i>Live Video</a>
-                    <div class="file-upload">
-                        <input type="file" id="input-photo" name="imgPost"></input>
-                        <i class="fas fa-camera fa-lg mr-2"></i>Photo/Video
+            <div class="post-input-container">
+                <textarea rows="3" placeholder="what's is on mind?" name="textStatus"></textarea>
+                <div class="d-flex justify-content-center mt-0">
+                    <img src="" alt="" id="img-post" name="imgPost">
+                </div>
+                <p id="status"></p>
+                <div class="add-post-link justify-content-between">
+                    <div class="d-flex align-items-center">
+                        <a href="#"><i class="fas fa-video fa-lg mr-2"></i>Live Video</a>
+                        <div class="file-upload">
+                            <input type="file" id="input-photo" name="imgPost"></input>
+                            <i class="fas fa-camera fa-lg mr-2"></i>Photo/Video
+                        </div>
+                        <a href="#"><i class="far fa-grin-alt fa-lg mr-2"></i>Feeling</a>
                     </div>
-                    <a href="#"><i class="far fa-grin-alt fa-lg mr-2"></i>Feeling</a>
+
+                    <div>
+                        <button type="submit" class="btn-share" id="btn-share">Share</button>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </form>
 
-                <div>
-                    <button type="submit" class="btn-share" id="btn-share">Share</button>
+
+
+    <!-------------------- post --------------->
+
+    <div class="post-show-contianer">
+        {{#if posts}}
+            {{#each posts}}
+            <div class="post-container">
+                <div class="head-post-container">
+                    <div class="left-head-post-container">
+                        <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/239782149_876730482932789_4917845868754946606_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=4MrUbmsRDSoAX_W4NKu&tn=aUTkPD_b_GU4Udwi&_nc_ht=scontent.fhan14-2.fna&oh=9741afd3644ca575e5bde7b329dcdc0b&oe=612F7EB8"
+                            alt="" style="border-radius: 50%;" width="50" height="50" class="d-inline-block align-top ">
+                        <div class="ml-2">
+                            <p>Hoang</p>
+                            <small>Public <i class="fas fa-sort-down fa-lg"></i> </small>
+                        </div>
+                    </div>
+                    <div class="right-head-post-container">
+                        <button id="btn-right-top-{{@index}}" class="btn-right-top" href="#"> <i
+                                class="fas fa-ellipsis-v "></i></button>
+                        <div class="sub-right-top" id="sub-right-top-{{@index}}">
+                            <ul>
+                                <li><a href="#">Pin Post</a></li>
+                                <hr>
+                                <li><a href="#">Edit Post</a></li>
+                                <hr>
+                                <li><a href="#" data-toggle="modal" data-target="#confirm" data-id="{{this._id}}">Delete
+                                        Post</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
+        
+                <div class="post-text">
+                    <p>{{this.textStatus}}</p>
+                    {{#with img}}
+                    <div class="post-text-img">
+                        <img src=data:{{contentType}};base64,{{imgbase64}} id="img-post">
+                    </div>
+                    {{/with}}
+                </div>
+        
+                <div class="post-status">
+                    <ul>
+                        <li><i class="far fa-thumbs-up fa-lg mr-2"></i> 1,2K</li>
+                        <li><i class="far fa-comment-alt fa-lg mr-2"></i> 126</li>
+                        <li><i class="fas fa-share-square fa-lg mr-2"></i> 45</li>
+                    </ul>
+                </div>
+        
+                <div class="user-comment">
+                    <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/239782149_876730482932789_4917845868754946606_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=4MrUbmsRDSoAX_W4NKu&tn=aUTkPD_b_GU4Udwi&_nc_ht=scontent.fhan14-2.fna&oh=9741afd3644ca575e5bde7b329dcdc0b&oe=612F7EB8"
+                        alt="" style="border-radius: 50%;" width="40" height="40" class="d-inline-block align-top ">
+                    <input type="text" placeholder="write comment..." id="comment-text-post-{{@index}}">
+                    <a id="send-comment-post-{{@index}}"><i class="fas fa-location-arrow ml-2 fa-lg mt-3"></i></a>
+                </div>
+        
+                <div class="mt-2" id="comment-post-{{@index}}" style="margin-left: 5rem;"></div>
+        
             </div>
-        </div>
-    </div>
-</form>
-
-
-
-<!-------------------- post --------------->
-
-{{#if posts}}
-{{#each posts}}
-<div class="post-container">
-    <div class="head-post-container">
-        <div class="left-head-post-container">
-            <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/173545353_852002415405596_3965892314770347869_n.jpg?_nc_cat=108&ccb=1-4&_nc_sid=09cbfe&_nc_ohc=v2BWpjH0JIQAX_uYlmB&_nc_ht=scontent.fhan2-3.fna&oh=808d5c851df79e7f4137854f4b392ca0&oe=61160215"
-                alt="" style="border-radius: 50%;" width="50" height="50" class="d-inline-block align-top ">
-            <div class="ml-2">
-                <p>Hoang</p>
-                <small>Public <i class="fas fa-sort-down fa-lg"></i> </small>
-            </div>
-        </div>
-        <div class="right-head-post-container">
-            <button id="btn-right-top-{{@index}}" class="btn-right-top" href="#"> <i
-                    class="fas fa-ellipsis-v "></i></button>
-            <div class="sub-right-top" id="sub-right-top-{{@index}}">
-                <ul>
-                    <li><a href="#">Pin Post</a></li>
-                    <hr>
-                    <li><a href="#">Edit Post</a></li>
-                    <hr>
-                    <li><a href="#" data-toggle="modal" data-target="#confirm" data-id="{{this._id}}">Delete Post</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="post-text mt-3 ml-5">
-        <p>{{this.textStatus}}</p>
-        {{#with img}}
-        <div class="d-flex justify-content-center mt-3">
-            <img src=data:{{contentType}};base64,{{imgbase64}} id="img-post">
-        </div>
-        {{/with}}
+            {{/each}}
+        {{/if}}
     </div>
 
-    <div class="post-status d-flex justify-content-start mt-3">
-        <a href="#"><i class="far fa-thumbs-up fa-lg mr-2"></i> 1,2K</a>
-        <a href="#"><i class="far fa-comment-alt fa-lg mr-2"></i> 126</a>
-        <a href="#"><i class="fas fa-share-square fa-lg mr-2"></i> 45</a>
-    </div>
-
-    <div class="user-comment">
-        <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/173545353_852002415405596_3965892314770347869_n.jpg?_nc_cat=108&ccb=1-4&_nc_sid=09cbfe&_nc_ohc=v2BWpjH0JIQAX_uYlmB&_nc_ht=scontent.fhan2-3.fna&oh=808d5c851df79e7f4137854f4b392ca0&oe=61160215"
-            alt="" style="border-radius: 50%;" width="40" height="40" class="d-inline-block align-top ">
-        <input type="text" placeholder="write comment..." id="comment-text-post-{{@index}}">
-        <a id="send-comment-post-{{@index}}"><i class="fas fa-location-arrow ml-2 fa-lg mt-3"></i></a>
-    </div>
-
-    <div class="mt-2" id="comment-post-{{@index}}" style="margin-left: 5rem;"></div>
+   
 </div>
-{{/each}}
-
-{{/if}}
 
 
 
@@ -144,20 +154,20 @@
         var clickBtnMenu = true;
 
         bodyEle.onclick = function (e) {
-            
+
             let idSendComment;//find id send coment when click body
             let idBtnMenu; //find id menu post
             const x = document.activeElement.tagName;
-            
+
             BUTTON = "BUTTON";
 
             if (x === BUTTON) {
                 idBtnMenu = e.path[1].id;
             } else {
                 idSendComment = e.path[1].id;
-                if(boxRightTop){
-                     boxRightTop.style = " display: none";
-                     clickBtnMenu = true;
+                if (boxRightTop) {
+                    boxRightTop.style = " display: none";
+                    clickBtnMenu = true;
                 }
             }
 
@@ -165,8 +175,8 @@
             if (idBtnMenu) {
 
                 btnRightTop = document.getElementById(idBtnMenu);
-                boxRightTop = btnRightTop.parentElement.lastElementChild;  
-               
+                boxRightTop = btnRightTop.parentElement.lastElementChild;
+
 
                 if (clickBtnMenu) {
                     boxRightTop.style = " display: flex";
@@ -175,8 +185,6 @@
                     clickBtnMenu = false;
                 }
             }
-
-
             //comentpost-------------
             if (idSendComment) {
                 const sendComment = document.getElementById(idSendComment);
@@ -190,7 +198,7 @@
                     const html = listComment.map(comment => {
                         return ` 
                         <div class="d-flex align-items-start mb-3 ml-5">
-                            <img src="https://scontent.fhan2-3.fna.fbcdn.net/v/t39.30808-6/173545353_852002415405596_3965892314770347869_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=ZmNj_LFTKM4AX9Tp9xF&_nc_ht=scontent.fhan2-3.fna&oh=7e10882e226f19984312be1f46370d8c&oe=611FE555" 
+                            <img src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/239782149_876730482932789_4917845868754946606_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=4MrUbmsRDSoAX_W4NKu&tn=aUTkPD_b_GU4Udwi&_nc_ht=scontent.fhan14-2.fna&oh=9741afd3644ca575e5bde7b329dcdc0b&oe=612F7EB8" 
                                 alt="" width="40px" height="40px" style="border-radius:50%">
                             <div class="ml-2 p-2" style="border-radius:10px; min-width: 100px; font-size: 13px;  background:rgba(104, 71, 71, 0.1);">
                                 <p class="m-0">Hoang</p>

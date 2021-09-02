@@ -1,41 +1,41 @@
-<div class="container">
+<div class="container-signup">
     <div class="row">
         <div class="col"></div>
-        <div class="col-6 bg-light mt-5">
+        <div class="col-6 form-login" style="margin-top:5rem;">
 
             <form action="" method="POST" class="form col-11" id="form-1">
-                <h3 class="heading text-center">Sign Up</h3>
+                <h3 class="heading text-center titile-profile">Sign Up</h3>
 
                 <div class="spacer"></div>
 
                 <div class="form-group">
                     <label for="fullname" class="form-label">Full Name</label>
-                    <input id="fullname" name="fullname" type="text" placeholder="VD: lee hoang" class="form-control"
+                    <input id="fullname" name="fullname" type="text" placeholder="VD: lee hoang" class="form-control input-login"
                      value="{{user.fullname}}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="email" class="form-label">Email</label>
-                    <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control"
+                    <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control input-login"
                      value="{{user.email}}" required>
                 </div>
 
                 <div class="form-group">
                     <label for="password" class="form-label">Password</label>
-                    <input id="password" name="password" type="password" placeholder="input password" class="form-control"
+                    <input id="password" name="password" type="password" placeholder="input password" class="form-control input-login"
                     value="{{user.password}}" required> 
                 </div>
 
                 <div class="form-group">
                     <label for="password_confirmation" class="form-label">Confirm Password</label>
                     <input id="password_confirmation" name="password_confirmation" placeholder="input password again"
-                        type="password" class="form-control" value="{{user.password_confirmation}}" required>
+                        type="password" class="form-control input-login" value="{{user.password_confirmation}}" required>
                 </div>
 
                 <button class="form-submit btn btn-primary">Sign Up</button>
             </form>
         </div>
-        <div class="col">
+        <div class="col" style="margin-top:5rem;">
             
             {{#if errors}}
                 {{#each errors}}

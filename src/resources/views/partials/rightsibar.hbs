@@ -1,56 +1,14 @@
-<div class="d-flex flex-column bg-light mb-3 mx-3 h-100">
-  <div class="sidebar-title mt-3 mx-1">
+<div class="right-container">
+  <div class="sidebar-title">
     <h4>Events</h4>
     <a href="#">See All</a>
   </div>
 
-  <div class="event">
-    <div class="left-event">
-      <h3>17</h3>
-      <span>August</span>
-    </div>
-    <div class="right-event">
-      <h4>Social Media</h4>
-      <p>Will Tech Park</p>
-      <a href="#">More info</a>
-    </div>
+  <div class="event-container" id="event-container">
+
   </div>
 
-  <div class="event">
-    <div class="left-event">
-      <h3>17</h3>
-      <span>August</span>
-    </div>
-    <div class="right-event">
-      <h4>Marketing</h4>
-      <p>Will Tech Park</p>
-      <a href="#">More info</a>
-    </div>
-  </div>
-
-  <div class="event">
-    <div class="left-event">
-      <h3>18</h3>
-      <span>August</span>
-    </div>
-    <div class="right-event">
-      <h4>Education</h4>
-      <p>Will Tech Park</p>
-      <a href="#">More info</a>
-    </div>
-  </div>
-
-  <div class="event">
-    <div class="left-event">
-      <h3>18</h3>
-      <span>August</span>
-    </div>
-    <div class="right-event">
-      <h4>Science</h4>
-      <p>Will Tech Park</p>
-      <a href="#">More info</a>
-    </div>
-  </div>
+  <button class="btn-event-more" id="btn-event-more" name ="see-more">See More</button>
 
   <div class="dropdown-divider"></div>
 
@@ -58,8 +16,200 @@
     <h4>Advertisement</h4>
     <a href="#">Close</a>
   </div>
-  <img
-    src="https://img.idesign.vn/w660/2018/09/19/idesign_30-chien-dich-quang-cao-ve-moi-truong-gay-chan-dong-du-luan_1.jpg"
-    alt="" height="auto" width="100%">
 
+  <div id="slideAds" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#slideAds" data-slide-to="0" class="active"></li>
+      <li data-target="#slideAds" data-slide-to="1"></li>
+      <li data-target="#slideAds" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="1000">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzVXl2u_UEDwz8GMZ-qYqWVTlFYVxAlZV_UQ&usqp=CAU"
+          class="d-block w-100 h-80 " alt="...">
+      </div>
+      <div class="carousel-item" data-interval="1000">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5bbz8eJNhNeEtxvmcgPS1gUgGpwMtNwqX1g&usqp=CAU"
+          class="d-block w-100 h-80" alt="...">
+      </div>
+      <div class="carousel-item" data-interval="1000">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl99JeH_DsxaaWZDK2DMDP5ZQaFv1TS2WC3XaBnB8jmsL-eVuKI76sRsVVtpM8Q4cHqGc&usqp=CAU"
+          class="d-block w-100 h-80" alt="...">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#slideAds" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#slideAds" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>
+
+
+<!-- -------------------Modal-event -------------------------->
+<div class="modal fade" id="eventModel" tabindex="-1" data-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+         <h3 id="title-page"></h3>
+         <img src="" alt="" id="img-event" style="width:100%; margin: 2rem 0;">
+         <span id="description-event"></span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+      const events =[
+          {
+            date: "02",
+            month: "September",
+            title: "Healthy",
+            author: "Will Take Park",
+            titlePage:"Salmonella Outbreak in 17 States Linked to Italian Meats — What to Know",
+            description: "The Centers for Disease Control and Prevention (CDC) issued a food safety alert on August 26 warning of a multistate salmonella outbreak.According to the CDCTrusted Source, 36 people across 17 statesTrusted Source were affected by the outbreak between May 9 and July 27. People who became sick ranged from 1 to 91 years old, and 12 people were hospitalized. There have been no reported deaths.",
+            img: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/08/Meat_Cheese_Board_732x549-thumbnail-732x549.jpg?w=420",
+          },
+
+          {
+            date: "04",
+            month: "September",
+            title: "Sicence",
+            author: "John Terry",
+            titlePage:"Quantum nature of gravity may be detectable with gravitational waves.",
+            description: "We may finally have a way to detect the quantum nature of gravity.The question of how gravity and quantum mechanics fit together has been one of the biggest problems in physics for decades. The way that quantum fluctuations affect gravitational waves – ripples in space-time caused by the movements of massive objects – may give physicists a way to solve it.Gravity is the one realm of physics that doesn’t currently fit into a quantum mechanical understandingfor the universe. “Our fundamental physical theory is …",
+            img: "https://images.newscientist.com/wp-content/uploads/2021/08/27155404/PRI_196527852.jpg?width=800",
+          },
+
+          {
+            date: "12",
+            month: "September",
+            title: "Education",
+            author: "Mark Anthor",
+            titlePage:"Christian Schools Vastly Outperforming Public Schools Amid Pandemic.",
+            description: "At the height of the coronavirus pandemic, Christian education shined. While only 8% of public school parents could say their children’s schools never closed, 26% of parents with kids in Christian schools did, according to a newly released survey by the Herzog Foundation.",
+            img: "https://www1.cbn.com/sites/default/files/styles/video_ratio_16_9/public/media/standard/images/studentsclassroomas_hdv.jpg?itok=RVIg4HFh",
+          },
+
+           {
+            date: "24",
+            month: "September",
+            title: "Technology",
+            author: "Will Take Park",
+            author: "John Terry",
+            titlePage:"Worldwide smartphone shipments tick up, driven mostly by emerging markets, 5G",
+            description: "Global smartphone shipments are expected to increase by 7.4% this year, according to new IDC data. The global pandemic suppressed last year's numbers, but the IDC confirmed that 2021's estimates are still an improvement over 2019 shipments.",
+            img: "https://cdn.vox-cdn.com/thumbor/ah3tWXNGcM-SIOwAXqyPV06CpLI=/0x0:2040x1360/920x613/filters:focal(857x517:1183x843):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/69795965/vpavic_4243_20201017_0077.0.0.jpg",
+          },
+
+           {
+            date: "25",
+            month: "September",
+            title: "History",
+            author: "Will Take Park",
+            titlePage:"Biden Aide: US has Capacity to Evacuate Remaining Americans",
+            description: "WASHINGTON (AP) — The United States has the capacity to evacuate the approximately 300 U.S. citizens remaining in Afghanistan who want to leave before President Joe Biden’s Tuesday deadline, national security adviser Jake Sullivan said Sunday. He also said the administration’s current plan is not to have “an ongoing embassy presence″ after the final U.S. troop withdrawal.",                
+            img: "https://www1.cbn.com/sites/default/files/styles/video_ratio_16_9/public/media/slider/images/jakesullivan.jpeg?itok=yFZ32klg",
+          },
+
+           {
+            date: "30",
+            month: "September",
+            title: "Political",
+            author: "Will Take Park",
+            titlePage:"Pressure Mounts to Stay in Afghanistan Until All Americans, Allies Are Out: 'What is the Worth of the American Handshake?'",
+            description: "Only seven days and counting remain to get Americans and Afghan allies out of Afghanistan to meet President Biden's August 31st deadline. It's an all but impossible mission and now the pressure is mounting for the president to extend the deadline to make sure no one is left behind.",
+            img: "https://www1.cbn.com/sites/default/files/styles/image_xl_640x480/public/media/standard/images/afghanevac_0.jpeg?itok=Ch1eAjza",
+          },
+
+      ];
+
+      const eventEle = document.getElementById("event-container");
+      const btnSeemore = document.getElementById("btn-event-more");
+
+      function loadEvent(){
+        eventEle.innerHTML ="";
+        for(let i=0; i< 3; i++){
+        const html = `
+            <div class="event">
+              <div class="left-event">
+                <h3>${events[i].date}</h3>
+                <span>${events[i].month}</span>
+              </div>
+              <div class="right-event">
+                <h4 class="titile-profile">${events[i].title}</h4>
+                <p>${events[i].author}</p>
+                <button type="button" class="btn-more-infor" data-toggle="modal" data-target="#eventModel" data-title="${events[i].title}">More info</button>
+              </div>
+            </div>
+            `
+            eventEle.insertAdjacentHTML("beforeend", html);
+        }
+      }
+      loadEvent();
+
+      btnSeemore.addEventListener("click", function (){
+           if(btnSeemore.name == "see-more"){
+
+             const html = events.map( event => {
+              return `
+                <div class="event">
+                    <div class="left-event">
+                      <h3>${event.date}</h3>
+                      <span>${event.month}</span>
+                    </div>
+                    <div class="right-event">
+                      <h4 class="titile-profile">${event.title}</h4>
+                      <p>${event.author}</p>
+                      <button type="button" class="btn-more-infor" data-toggle="modal" data-target="#eventModel" data-title="${event.title}">
+                        More info
+                      </button>
+                    </div>
+                </div>
+              `
+            });
+            eventEle.innerHTML = "";
+            eventEle.insertAdjacentHTML("beforeend", html.join(""));
+            btnSeemore.firstChild.nodeValue = "See Less";
+            btnSeemore.name = "see-less";
+           }else{
+             loadEvent();
+             btnSeemore.name = "see-more";
+             btnSeemore.firstChild.nodeValue = "See More";
+           }
+      });
+
+
+      $('#eventModel').on('show.bs.modal', function (event) {
+          const button = $(event.relatedTarget); 
+          const title = button.data('title');
+          const titlePage = document.getElementById('title-page');
+          const imgPage = document.getElementById('img-event');
+          const desPage = document.getElementById('description-event');
+          const titleEvent = document.getElementById('staticBackdropLabel');
+          
+          const eventInfor =events.find(event => event.title == title);
+
+          titleEvent.innerText = eventInfor.title;
+          titlePage.innerText = eventInfor.titlePage;
+          imgPage.src = eventInfor.img;
+          desPage.innerText = eventInfor.description; 
+      })
+     
+  });
+</script>
